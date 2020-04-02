@@ -12,9 +12,6 @@ router.post('/', (req, res) => {
     }, (err, client) => {
         if(err) throw err;
         let body = req.body;
-        if(!body.email || !body.password) {
-            res.status(400).send('Something broke');
-        }
         client.db(db).collection("users").find({
             email: body.email,
         }) .toArray((err, r) => {

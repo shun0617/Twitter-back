@@ -5,7 +5,7 @@ var MongoClient = mongodb.MongoClient;
 var url_mongo = "mongodb://heroku_m6pw58z7:3m2jnsghpanegrhnu540iusr7g@ds155651.mlab.com:55651/heroku_m6pw58z7";
 var db = 'heroku_m6pw58z7';
 
-router.post('/', (req, res) => {
+router.get('/', (req, res) => {
     MongoClient.connect(url_mongo, {
         useNewUrlParser: true
     }, (err, client) => {
