@@ -12,9 +12,6 @@ router.post('/', (req, res) => {
     }, (err, client) => {
         if(err) throw err;
         let body = req.body;
-        if(!body.name || !body.email || !body.password || !body.profile) {
-            res.status(400).send('Something broke');
-        }
         let hashed_password = bcrypt.hashSync(body.password, 10);
         let data = {
             name: body.name,

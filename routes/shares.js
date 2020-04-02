@@ -134,9 +134,11 @@ router.post('/:share_id/comments', (req, res) => {
         if(err) throw err;
         let body = req.body;
         let share_id = req.params.share_id;
+        /*
         if(!body.content || !body.name || !share_id) {
             res.status(400).send('Something broke');
         } else {
+            */
             client.db(db).collection("comments").insertOne({
                 share_id: ObjectId(share_id),
                 name: body.name,
@@ -146,7 +148,6 @@ router.post('/:share_id/comments', (req, res) => {
                 client.close();
                 res.send(r);
             });
-        }
     });
 });
 module.exports = router;

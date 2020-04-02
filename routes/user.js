@@ -11,9 +11,6 @@ router.get('/', (req, res) => {
     }, (err, client) => {
         if(err) throw err;
         let email = req.query.email;
-        if(!email) {
-            res.status(400).send('Something broke');
-        }
         client.db(db).collection("users").find({
             email: email
         }) .toArray((err, r) => {
